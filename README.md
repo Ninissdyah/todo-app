@@ -1,16 +1,37 @@
-# React + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, responsive Todo List application designed to help you organize your daily activities efficiently.
 
-Currently, two official plugins are available:
+## How to Use
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  **Add Activity**: Click the floating **+** button at the bottom of the screen. Enter the activity name, select a date, and set a time.
+2.  **View Activities**: Your activities are automatically sorted into "Today", "Tomorrow", and "Next 7 Days". Scroll through the list to see what's coming up.
+3.  **Complete Activity**: Click the **Done** button on any activity card to mark it as complete and remove it from the list.
+4.  **Switch Theme**: Use the floating sun/moon icon in the top-right corner to toggle between Light and Dark modes.
+5.  **Notifications**: Allow browser notifications to receive alerts for your scheduled activities.
 
-## React Compiler
+## Technical Details
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is a Single Page Application (SPA) built with modern web technologies.
 
-## Expanding the ESLint configuration
+### Tech Stack
+*   **Framework**: [React](https://react.dev/)
+*   **Build Tool**: [Vite](https://vitejs.dev/)
+*   **Styling**: Vanilla CSS with Semantic Classes (No external CSS frameworks like Tailwind). Features include:
+    *   Glassmorphism effects
+    *   CSS Variables for theming (Light/Dark mode)
+    *   Smooth CSS animations and transitions
+    *   Responsive design
+*   **Icons**: [Lucide React](https://lucide.dev/)
+*   **Date Handling**: [date-fns](https://date-fns.org/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Key Features Implementation
+*   **Persistence**: Data is saved to the browser's `localStorage` as a JSON string, ensuring your todo list survives page reloads.
+*   **State Management**: React `useState` and `useEffect` hooks manage the application state and side effects.
+*   **Custom Hooks**: A `useTodos` hook encapsulates the logic for adding, removing, and persisting todos.
+
+## Contact
+
+If you are interested in this project or have any questions, please feel free to contact me:
+
+**Email**: [ninis.dyah.yulianingsih@mail.ugm.ac.id](mailto:ninis.dyah.yulianingsih@mail.ugm.ac.id)
