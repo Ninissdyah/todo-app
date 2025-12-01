@@ -1,6 +1,8 @@
 # Todo App
 
-A premium, responsive Todo List application designed to help you organize your daily activities efficiently. Now powered by a Node.js backend with SQLite database.
+A responsive Todo List application designed to help you organize your daily activities efficiently. Now powered by a Node.js backend with SQLite database.
+
+<img width="1920" height="932" alt="Screenshot 2025-12-01 223021" src="https://github.com/user-attachments/assets/193f5e50-4d62-4f18-9118-7515da88e2ae" />
 
 ## How to Use
 
