@@ -2,10 +2,11 @@ import { isToday, isTomorrow, isWithinInterval, addDays, parseISO, startOfDay } 
 import ActivityItem from './ActivityItem';
 
 export default function ActivityList({ todos, onDone }) {
+    const overdueTodos = [];
     const todayTodos = [];
     const tomorrowTodos = [];
     const next7DaysTodos = [];
-    const otherTodos = [];
+    const upcomingTodos = [];
 
     const now = new Date();
     const todayStart = startOfDay(now);
@@ -14,27 +15,32 @@ export default function ActivityList({ todos, onDone }) {
 
     todos.forEach((todo) => {
         const date = parseISO(todo.date);
-        if (isToday(date)) {
+
+        if (date < todayStart) {
+            overdueTodos.push(todo);
+        } else if (isToday(date)) {
             todayTodos.push(todo);
         } else if (isTomorrow(date)) {
             tomorrowTodos.push(todo);
         } else if (isWithinInterval(date, { start: next7Start, end: next7End })) {
             next7DaysTodos.push(todo);
         } else {
-            otherTodos.push(todo);
+            upcomingTodos.push(todo);
         }
     });
 
     // Sort by time
     const sortByDate = (a, b) => new Date(a.date) - new Date(b.date);
+    overdueTodos.sort(sortByDate);
     todayTodos.sort(sortByDate);
     tomorrowTodos.sort(sortByDate);
     next7DaysTodos.sort(sortByDate);
+    upcomingTodos.sort(sortByDate);
 
-    const Section = ({ title, items }) => (
+    const Section = ({ title, items, className }) => (
         items.length > 0 && (
             <div>
-                <h3 className="section-title">
+                <h3 className={`section-title ${className || ''}`}>
                     {title}
                 </h3>
                 <div>
@@ -55,9 +61,11 @@ export default function ActivityList({ todos, onDone }) {
                 </div>
             ) : (
                 <>
+                    <Section title="Overdue" items={overdueTodos} className="text-danger" />
                     <Section title="Today" items={todayTodos} />
                     <Section title="Tomorrow" items={tomorrowTodos} />
                     <Section title="Next 7 Days" items={next7DaysTodos} />
+                    <Section title="Upcoming" items={upcomingTodos} />
                 </>
             )}
         </div>
