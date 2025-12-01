@@ -2,8 +2,6 @@
 
 A premium, responsive Todo List application designed to help you organize your daily activities efficiently.
 
-<img width="1920" height="931" alt="Screenshot 2025-11-29 233635" src="https://github.com/user-attachments/assets/dedb8226-44a7-436a-8c97-c1baee10f28a" />
-
 ## How to Use
 
 1.  **Add Activity**: Click the floating **+** button at the bottom of the screen. Enter the activity name, select a date, and set a time.
